@@ -35,6 +35,13 @@ class TargetSnowflake(SQLTarget):
             description="Path to file containing private key.",
         ),
         th.Property(
+            "authenticator",
+            th.StringType,
+            required = False,
+            description = "Authentication method.  `snowflake` or `externalbrowser`.",
+            default = "snowflake"
+        ),
+        th.Property(
             "private_key_passphrase",
             th.StringType,
             required=False,

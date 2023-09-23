@@ -115,10 +115,12 @@ class SnowflakeConnector(SQLConnector):
             "database": config["database"],
         }
 
-        if "password" in config:
+        if "authenticator" in config and config["authenticator"] == "externalbrowser":
+            params["authenticator"] = config["authenticator"]        
+        elif "password" in config:
             params["password"] = config["password"]
         elif "private_key_path" not in config:
-            raise Exception("Neither password nor private_key_path was provided for authentication.")
+            raise Exception("Must use SSO, or provide one of password or private_key_path.")
 
         for option in ["warehouse", "role"]:
             if config.get(option):

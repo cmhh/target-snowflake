@@ -45,6 +45,10 @@ plugins:
       kind: integer
       label: Flattening Max Depth
       name: flattening_max_depth
+    - description: Authentication method.  One of `snowflake` or `externalbrowser`.
+      kind: string
+      label: Authentication Method
+      name: authenticator
     - description: The password for your Snowflake user.
       kind: password
       label: Password
@@ -87,3 +91,4 @@ plugins:
       - database
       - password
       - user
+      - authenticator
