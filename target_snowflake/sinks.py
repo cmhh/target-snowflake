@@ -20,6 +20,9 @@ from snowflake.sqlalchemy.snowdialect import SnowflakeDialect
 
 from target_snowflake.connector import SnowflakeConnector
 
+import singer_sdk.helpers._batch as b
+b.DEFAULT_BATCH_SIZE = 200000
+
 DEFAULT_BATCH_CONFIG = {
     "encoding": {"format": "jsonl", "compression": "gzip"},
     "storage": {"root": "file://"},
