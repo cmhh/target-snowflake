@@ -132,7 +132,6 @@ class SnowflakeSink(SQLSink):
 
         # serialize to batch files and upload
         # TODO: support other batchers
-        conf = self.batch_config
         batcher = JSONLinesBatcher(
             tap_name=self.target.name,
             stream_name=self.stream_name,
