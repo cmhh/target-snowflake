@@ -156,6 +156,7 @@ class SnowflakeSink(SQLSink):
             A frozen (read-only) config dictionary map.
         """
         raw = self.config.get("batch_config", DEFAULT_BATCH_CONFIG)
+        raw.batch_size = self.config.get("batch_size", 200000)
         return BatchConfig.from_dict(raw)
 
     def insert_batch_files_via_internal_stage(
